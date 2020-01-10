@@ -80,10 +80,7 @@ var pois = [
     });
   }
 
-  function clearPoiInputs(){
-    document.getElementById("poiName").value = '';
-    document.getElementById("link").value = '';
-  }
+
   
   function updatePoi(id) {
     var msg = "Poi updated successfully!";
@@ -164,8 +161,8 @@ function deletePoi(id){
 
 function getAllPoi() {
   axios
-    .get('http://localhost:8083/poi/all')
-    .then(res => showOutput(res))
+    .get('http://localhost:8080/poi/all')
+    .then(res => showPoi(res))
     .catch(error => console.log(error));
 }
 
