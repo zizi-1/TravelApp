@@ -1,4 +1,4 @@
-package Test.service;
-
-public class DetailsServiceIntegrationTest {
-}
+//package Test.service;
+//
+//public class DetailsServiceIntegrationTest {
+//}
