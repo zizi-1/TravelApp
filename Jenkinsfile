@@ -24,10 +24,10 @@ pipeline {
         }
 	stage('--Create & Connect SQL Container with Table--') {
             steps {
-                sh "docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=password -d mysql:lates"
+                sh "docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=password -d mysql:latest"
 		sh "docker network connect travelapp-mysql mysql"
 		sh "sleep 30s"
-		sh "docker container run -it --network travelapp-mysql --rm mysql mysql -hmysql -u root -ppassword -e "create database ta_database;""    
+		sh "docker container run -it --network travelapp-mysql --rm mysql mysql -hmysql -u root -ppassword -e 'create database ta_database;'"    
 	
 		}
         }
