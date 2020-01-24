@@ -14,12 +14,6 @@
 	<name>com.bae.TravelApp</name>
 	<description>Demo project for Spring Boot</description>
 <!--	<packaging>war</packaging>-->
-<repositories>
-    <repository>
-      <id>maven-group</id>
-      <url>http://35.178.237.71:8081/repository/maven-group/</url>
-    </repository>
-  </repositories>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -71,5 +65,19 @@
 			</plugin>
 		</plugins>
 	</build>
+
+
+ <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <name>maven-releases</name>
+            <url>http://localhost:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>maven-snapshots</name>
+            <url>http://localhost:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
