@@ -14,7 +14,12 @@
 	<name>com.bae.TravelApp</name>
 	<description>Demo project for Spring Boot</description>
 <!--	<packaging>war</packaging>-->
-
+<repositories>
+    <repository>
+      <id>maven-group</id>
+      <url>http://35.178.237.71:8081/repository/maven-group/</url>
+    </repository>
+  </repositories>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
