@@ -9,14 +9,6 @@ pipeline {
 		sh "mvn package"
             }
         }
-#        stage('--Clean --') {
- #           steps {
-  #              sh "docker stop mysql"
-#		sh "docker stop TravelAppDeploy"
-#		sh "docker system prune -a"
-
- #           }
-  #      }
         stage('--Create Network--') {
             steps {
                 sh "docker network create travelapp-mysql"
