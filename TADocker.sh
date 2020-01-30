@@ -35,15 +35,15 @@ docker stop TravelAppDeploy
 docker stop pleaseWork
 docker system prune -a
 
-#SQL
-docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=password -d mysql:latest
+# #SQL
+# docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=password -d mysql:latest
 
-#Docker Network
-docker network create travelapp-mysql
+# #Docker Network
+# docker network create travelapp-mysql
 
-docker network connect travelapp-mysql mysql
-sleep 30s
-docker container run -it --network travelapp-mysql --rm mysql mysql -hmysql -u root -ppassword -e "create database ta_database;"
+# docker network connect travelapp-mysql mysql
+# sleep 30s
+# docker container run -it --network travelapp-mysql --rm mysql mysql -hmysql -u root -ppassword -e "create database ta_database;"
 
 #Build
 docker build -t travel-app .
