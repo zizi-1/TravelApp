@@ -49,5 +49,5 @@ docker system prune -a
 docker build -t travel-app .
 
 #Run
-docker run --network travelapp-mysql -d -p 9090:8082 --name TravelAppDeploy travel-app
+docker run -d -p 9090:8082 --name TravelAppDeploy travel-app --restartalways
 
