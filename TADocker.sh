@@ -29,6 +29,11 @@ COPY --from=0 /TravelApp/target/*.jar app.jar
 ENTRYPOINT ["/usr/bin/java", "-jar", "app.jar"]
  ' > Dockerfile
 
+sudo apt install docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo setfacl -m user:ubuntu:rw /var/run/docker.sock
+sudo usermod -aG docker $USER
 
 docker stop mysql
 docker stop TravelAppDeploy
