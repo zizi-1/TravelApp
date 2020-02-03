@@ -19,6 +19,7 @@ pipeline {
         }
 	stage('--Build Backend Image--') {
             steps {
+		sh "sudo chmod 777 /var/run/docker.sock"
                 sh "docker build -t travel-app ."
             }
         }
