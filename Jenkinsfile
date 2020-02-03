@@ -19,13 +19,12 @@ pipeline {
         }
 	stage('--Build Backend Image--') {
             steps {
-		sh "sudo chmod 777 /var/run/docker.sock"
-                sh "docker build -t travel-app ."
+                sh "docker build --privileged -t travel-app ."
             }
         }
 	stage('--RUN--') {
             steps {
-                sh "docker run --network travelapp-mysql -d -p 9090:8082 --name TravelAppDeploy travel-app"
+                sh "docker run -d -p 9090:8082 --name TravelAppDeploy travel-app"
             }
       }
 
