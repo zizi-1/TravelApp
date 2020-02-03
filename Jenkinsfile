@@ -19,7 +19,7 @@ pipeline {
         }
 	stage('--Build Backend Image--') {
             steps {
-                sh "docker build --privileged -t travel-app ."
+                sh "docker build -t travel-app ."
             }
         }
 	stage('--RUN--') {
