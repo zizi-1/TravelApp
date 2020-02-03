@@ -2,28 +2,22 @@ pipeline {
 	agent any
 
 	stages {
-        stage('---MVN---') {
+        stage('---Mvn Clean---') {
             steps {
                 sh "mvn clean"
+            }
+        }
+	stage('---Mvn Test---') {
+            steps {
 		sh "mvn test"
+            }
+        }
+	stage('---Mvn Package---') {
+            steps {
 		sh "mvn package"
             }
         }
-        stage('--Create Network--') {
-            steps {
-                sh "docker network create travelapp-mysql"
-            }
-        }
-	stage('--Create & Connect SQL Container with Table--') {
-            steps {
-                sh "docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=password -d mysql:latest"
-		sh "docker network connect travelapp-mysql mysql"
-		sh "sleep 30s"
-		sh "docker container run -it --network travelapp-mysql --rm mysql mysql -hmysql -u root -ppassword -e 'create database ta_database;'"    
-	
-		}
-        }
-	stage('--Build--') {
+	stage('--Build Backend Image--') {
             steps {
                 sh "docker build -t travel-app ."
             }
