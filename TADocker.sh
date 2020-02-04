@@ -52,7 +52,7 @@ docker system prune -a
 # docker container run -it --network travelapp-mysql --rm mysql mysql -hmysql -u root -ppassword -e "create database ta_database;"
 
 #Build
-docker build -tt travel-app .
+docker build -t travel-app .
 
 #Run
 docker run -d -p 9090:8082 --name TravelAppBackend travel-app --restart
