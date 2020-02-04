@@ -19,7 +19,18 @@ pipeline {
         }
 	stage('--Build Backend Image--') {
             steps {
-                sh "sudo docker build -t travel-app ."
+                sh "sudo docker build -t zzahid1234/atoz:$BUILD_NUMBER ."
+            }
+        }
+		stage('--Push Image to DockerHub--') {
+            steps {
+		    withDockerRegistry([ credentialsId "zohaibs-dockerhub", url: ""]) {
+                sh "docker push zzahid1234/atoz:$BUILD_NUMBER"
+            }
+        }
+		stage('---Mvn Deploy---') {
+            steps {
+		sh "mvn deploy"
             }
         }
 	stage('--RUN--') {
