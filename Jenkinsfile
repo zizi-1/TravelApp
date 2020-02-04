@@ -19,12 +19,12 @@ pipeline {
         }
 	stage('--Build Backend Image--') {
             steps {
-                sh "docker build -t travel-app ."
+                sh "sudo docker build -t travel-app ."
             }
         }
 	stage('--RUN--') {
             steps {
-                sh "docker run -d -p 9090:8082 --name TravelAppDeploy travel-app"
+                sh "sudo docker run -d -p 9090:8082 --name TravelAppbackend travel-app"
             }
       }
 
