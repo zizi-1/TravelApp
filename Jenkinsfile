@@ -24,7 +24,7 @@ pipeline {
         }
 		stage('--Push Image to DockerHub--') {
             steps {
-		    withDockerRegistry([ credentialsId "zohaibs-dockerhub", url: ""]) {
+		    withDockerRegistry([ credentialsId: "zohaibs-dockerhub", url: ""]) {
                 sh "docker push zzahid1234/atoz:$BUILD_NUMBER"
             }
         }
