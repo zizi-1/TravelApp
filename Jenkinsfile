@@ -27,6 +27,7 @@ pipeline {
 		    withDockerRegistry([ credentialsId: "zohaibs-dockerhub", url: ""]) {
                 sh "docker push zzahid1234/atoz:$BUILD_NUMBER"
             }
+	    }
         }
 		stage('---Mvn Deploy---') {
             steps {
@@ -41,4 +42,4 @@ pipeline {
 
 }
 }
-}
+
