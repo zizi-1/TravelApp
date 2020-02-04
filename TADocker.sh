@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf TravelAppBackend
+
 git clone -b DockerTest https://github.com/zzahid93/TravelApp.git
 
 cd TravelApp
@@ -35,9 +37,8 @@ sudo systemctl enable docker
 sudo setfacl -m user:ubuntu:rw /var/run/docker.sock
 sudo usermod -aG docker $USER
 
-docker stop mysql
-docker stop TravelAppDeploy
-docker stop pleaseWork
+#docker stop mysql
+docker stop TravelAppBackend
 docker system prune -a
 
 # #SQL
@@ -54,5 +55,4 @@ docker system prune -a
 docker build -t travel-app .
 
 #Run
-docker run -d -p 9090:8082 --name TravelAppDeploy travel-app --restart
-
+docker run -d -p 9090:8082 --name TravelAppBackend travel-app --restart
