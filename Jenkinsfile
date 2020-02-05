@@ -29,11 +29,6 @@ pipeline {
             }
 	    }
         }
-		stage('---Mvn Deploy---') {
-            steps {
-		sh "mvn deploy"
-            }
-        }
 
 }
 }
