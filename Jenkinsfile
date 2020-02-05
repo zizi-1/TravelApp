@@ -19,13 +19,13 @@ pipeline {
         }
 	stage('--Build Backend Image--') {
             steps {
-                sh "docker build -t zzahid1234/atoz:$BUILD_NUMBER ."
+                sh "docker build -t zzahid1234/atoz ."
             }
         }
 		stage('--Push Image to DockerHub--') {
             steps {
 		    withDockerRegistry([ credentialsId: "zohaibs-dockerhub", url: "" ]) {
-                sh "docker push zzahid1234/atoz:$BUILD_NUMBER"
+                sh "docker push zzahid1234/atoz"
             }
 	    }
         }
@@ -34,11 +34,6 @@ pipeline {
 		sh "mvn deploy"
             }
         }
-	stage('--RUN--') {
-            steps {
-                sh "sudo docker run -d -p 9090:8082 --name TravelAppbackend travel-app"
-            }
-      }
 
 }
 }
