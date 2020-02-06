@@ -31,7 +31,7 @@ pipeline {
         }
 		stage('---SSH into VM---') {
         		steps {
-        		sh "ssh -T -i /home/ubuntu/Private.pem ubuntu@ec2-18-130-57-86.eu-west-2.compute.amazonaws.com"
+        		sh "ssh -T -i /home/ubuntu/Private.pem ubuntu@ec2-18-130-57-86.eu-west-2.compute.amazonaws.com ./backendStartup"
         }
 		}
 
